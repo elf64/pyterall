@@ -13,6 +13,9 @@
 #
 #
 # Importing the libraries we need
+#
+#
+
 import subprocess
 import sys
 
@@ -50,8 +53,7 @@ def run(argv):
 		print "Usage:"
 		print "    python script.py <command> <command2> ..."
 		print "    ./script <command> <command2> ..."
-		print "	   ls <directory>"
-		print "    "
+		print "    ls <directory>"
 		print "Please use atleast 1 argument."
 	elif sys.argv[1] != "-h" or sys.argv[1] == "--h" or sys.argv[1] == "-help":
 		print c.f + "Output of the command" + c.end
@@ -74,6 +76,5 @@ if __name__ == '__main__':
 		print "Usage:"
 		print "    python script.py <command> <command2> ..."
 		print "    ./script <command> <command2> ..."
-		print "	   ls <directory>"
-		print "    "
+		print "    ls <directory>"
 		print "Please use atleast 1 argument."
