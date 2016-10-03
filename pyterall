@@ -1,0 +1,79 @@
+#!/usr/bin/python2.7
+#
+# Pyterall version [0.1.0]
+#
+# Pyterall is a python script that can run terminal commands
+# and print live output
+#
+#
+# It can be done more good and can be better but that's how i make it :D
+#
+# Feel free to improve and change what u want
+#
+#
+#
+# Importing the libraries we need
+import subprocess
+import sys
+
+
+# -- Colors -- #
+class c:
+	b = '\033[36m'
+	alt = '\033[35m'
+	f = '\033[32m'
+	end = '\033[0m'
+
+
+# -- Print the ascii -- #
+print c.b + """
+            #
+           #*#
+          #***#
+         #*****#
+        #*******#
+       #*********#
+      #*****_*****#
+     #*****| |*****#
+    #******| |******#
+   #*****/     \*****#
+  #*****/       \*****#
+ #*****/         \*****#
+#****/             \****#
+
+""" + c.end
+
+
+# -- Main function that will run out commands and print output -- #
+def run(argv):
+	if sys.argv[1] == "-h" or sys.argv[1] == "--h" or sys.argv[1] == "-help":
+		print "Usage:"
+		print "    python script.py <command> <command2> ..."
+		print "    ./script <command> <command2> ..."
+		print "	   ls <directory>"
+		print "    "
+		print "Please use atleast 1 argument."
+	elif sys.argv[1] != "-h" or sys.argv[1] == "--h" or sys.argv[1] == "-help":
+		print c.f + "Output of the command" + c.end
+		print c.alt + "=========================================" + c.end
+		try:
+			with open ('pyterall.log', 'w') as f:
+				process = subprocess.Popen(argv, stdout=subprocess.PIPE)
+				for lax in iter(lambda: process.stdout.read(1), ''):
+					sys.stdout.write(lax)
+					f.write(lax)
+		except Exception as e:
+			print "Error found >>>"
+			print e
+			print "Or incorrect command"
+		print c.alt + "=========================================" + c.end
+if __name__ == '__main__':
+	try:
+		run(sys.argv[1:])
+	except IndexError:
+		print "Usage:"
+		print "    python script.py <command> <command2> ..."
+		print "    ./script <command> <command2> ..."
+		print "	   ls <directory>"
+		print "    "
+		print "Please use atleast 1 argument."

@@ -1,0 +1,14 @@
+Pyterall version 0.1.0
+
+Pyterall is a python script that can run terminal commands and print 
+the output live
+
+Example:
+    pyterall ls /user/{user}/Desktop
+    >> Will print all the files from Desktop
+    pyterall sudo pacman -Syyu 
+    >> Will print [sudo] password for {user}:
+    >> And you will need to input the password and after that
+    ... it will print the pacman that refreshes the package list
+
+Feel free to change/edit what u want.
